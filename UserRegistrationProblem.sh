@@ -3,13 +3,18 @@
 #DISPLAYING WELCOME MESSAGE
 echo "Welcome To User Registration Problem"
 
-#VARIABLE
+#VARIABLES
+firstName=0;
+lastName=0;
+emailId=0;
 firstNamePattern=0;
 lastNamePattern=0;
+emailPattern=0;
 
 #PATTERN
 firstNamePattern="^[A-Z][A-Za-z]{2,}$"
 lastNamePattern="^[A-Z][A-Za-z]{2,}$"
+emailPattern="^([a-zA-Z]{3,}([.|_|+|-]?[a-zA-Z0-9]+)?[@][a-zA-Z0-9]+[.][a-zA-Z]{2,3}([.]?[a-zA-Z]{2,3})?)$"
 
 #FUNCTION TO CHECK VALID FIRST NAME
 function firstNameValidation() {
@@ -38,3 +43,17 @@ function lastNameValidation() {
 
 #CALLING FUNCTION TO VALIDATE LAST NAME
 lastNameValidation
+
+#FUNCTION TO VALIDATE USER EMAIL
+function emailValidation() {
+	read -p "Enter Email Id: " emailId
+	if [[ $emailId =~ $emailPattern ]]
+	then
+		echo "Valid Email Id"
+	else
+		echo "Invalid Email Id"
+	fi
+}
+
+#CALLING FUNCTION TO VALIDATE EMAIL ID
+emailValidation
