@@ -13,21 +13,21 @@ emailPattern=0;
 mobileNumber=0;
 password=0;
 
-#PATTERN
+#PATTERNS
 firstNamePattern="^[A-Z][A-Za-z]{2,}$"
 lastNamePattern="^[A-Z][A-Za-z]{2,}$"
 emailPattern="^([a-zA-Z]{3,}([.|_|+|-]?[a-zA-Z0-9]+)?[@][a-zA-Z0-9]+[.][a-zA-Z]{2,3}([.]?[a-zA-Z]{2,3})?)$"
 mobileNumberPattern="^[0-9]{2}[ ][0-9]{10}$"
-passwordPattern="^[A-Za-z]{8,}$"
+passwordPattern="^[A-Za-z]*[A-Z]+[A-Za-z]*{8,}$"
 
 #FUNCTION TO CHECK VALID FIRST NAME
 function firstNameValidation() {
 	read -p "Enter First Name: " firstName
 	if [[ $firstName =~ $firstNamePattern ]]
 	then
-		echo "Valid Input"
+		echo "Valid First Name"
 	else
-		echo "Invalid Input"
+		echo "Invalid First Name"
 	fi
 }
 
@@ -39,9 +39,9 @@ function lastNameValidation() {
 	read -p "Enter Last Name: " lastName
 	if [[ $lastName =~ $lastNamePattern ]]
 	then
-		echo "Valid Input"
+		echo "Valid Last Name"
 	else
-		echo "Invalid Input"
+		echo "Invalid Last Name"
 	fi
 }
 
