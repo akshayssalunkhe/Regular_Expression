@@ -11,12 +11,14 @@ firstNamePattern=0;
 lastNamePattern=0;
 emailPattern=0;
 mobileNumber=0;
+password=0;
 
 #PATTERN
 firstNamePattern="^[A-Z][A-Za-z]{2,}$"
 lastNamePattern="^[A-Z][A-Za-z]{2,}$"
 emailPattern="^([a-zA-Z]{3,}([.|_|+|-]?[a-zA-Z0-9]+)?[@][a-zA-Z0-9]+[.][a-zA-Z]{2,3}([.]?[a-zA-Z]{2,3})?)$"
 mobileNumberPattern="^[0-9]{2}[ ][0-9]{10}$"
+passwordPattern="^[A-Za-z]{8,}$"
 
 #FUNCTION TO CHECK VALID FIRST NAME
 function firstNameValidation() {
@@ -71,6 +73,19 @@ function mobileNumberValidation() {
 	fi
 }
 
-#CALLING FUNCTION TO VALID MOBILE NUMBER
+#CALLING FUNCTION TO VALIDATE MOBILE NUMBER
 mobileNumberValidation
 
+#FUNCTION TO VALIDATE USER PASSWORD
+function passwordValidation() {
+	read -p "Enter Password With Minimum Eight Characters " password
+	if [[ $password =~ $passwordPattern ]]
+	then
+		echo "Valid Password"
+	else
+		echo "Invalid Password"
+	fi
+}
+
+#CALLING FUNCTION TO VALIDATE PASSWORD
+passwordValidation
